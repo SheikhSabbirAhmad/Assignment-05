@@ -1,11 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Issues Tracker | Home</title>
+    <title>Home | GitHub Issues Tracker</title>
+
+    <!-- Tailwind + DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+
 </head>
+
 <body>
-    <h2>GitHub Issues Tracker | Home</h2>
+    <section>
+        <div class="navbar bg-base-100 shadow-sm flex justify-between px-22">
+            <div class="flex items-center gap-2">
+                <div class="w-10">
+                    <img src="./assets/github-logo.png" alt="">
+                </div>
+                <h2 class="text-[#1F2937] text-2xl font-bold">GitHub Issues Tracker</h2>
+            </div>
+            <div class="flex gap-2">
+                <input type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
+                <div class="">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="w-10/12 mx-auto mt-15">
+        <section class="bg-base-100 p-5 flex items-center shadow-sm">
+            
+        <div class="flex flex-wrap gap-2">
+          <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn"
+            class="text-[12px] font-semibold text-white bg-[#3B82F6] px-9 py-2 rounded-sm cursor-pointer">All</button>
+          <button onclick="toggleStyle('interview-filter-btn')" id="open-filter-btn"
+            class="text-[12px] font-semibold text-[#64748B] bg-[#E4E4E7] px-6 py-2 rounded-sm cursor-pointer">Open</button>
+          <button onclick="toggleStyle('rejected-filter-btn')" id="closed-filter-btn"
+            class="text-[12px] font-semibold text-[#64748B] bg-[#E4E4E7] px-5 py-2 rounded-sm cursor-pointer">Closed</button>
+        </div>
+        </section>
+
+        <section class="bg-base-100 p-5 shadow-sm flex items-center justify-between mt-5">
+            <div class="left flex items-center gap-3">
+                <div class="bg-gray-200 p-2 rounded-full">
+                    <img src="./assets/Aperture.png" alt="">
+                </div>
+
+                <div>
+                    <h3 class="text-[#1F2937] text-xl font-semibold" id="totalIssues" >50 Issues</h3>
+                    <p class="text-[#64748B] text-[15px]">Track and manage your project issues</p>
+                </div>
+            </div>
+
+        <div class="right">
+            <div class="flex items-center gap-5">
+
+                <div class="flex items-center gap-1.5">
+                    <span class="w-4 h-4 bg-green-500 rounded-full inline-block"></span>
+                        <p class="text-[#1F2937] text-[16px] font-semibold">Open</p>
+                </div>
+
+                <div class="flex items-center gap-1.5">
+                    <span class="w-4 h-4 bg-purple-500 rounded-full inline-block"></span>
+                        <p class="text-[#1F2937] text-[16px] font-semibold">Closed</p>
+                </div>
+
+            </div>
+        </div>
+        </section>
+    </main>
 </body>
+
 </html>
