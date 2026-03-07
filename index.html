@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GitHub Issues Tracker | Login</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- Tailwind + DaisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -13,12 +15,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
     <style>
-        *{
+        * {
             font-family: "Geist", sans-serif;
         }
     </style>
 </head>
+
 <body>
-    <h2>hello</h2>
+    <section class="card bg-[#FFFFFF] w-full max-w-sm shrink-0 shadow mx-auto rounded-sm mt-10 mb-10">
+
+        <div class="logo w-[200px] flex justify-center pt-10 mx-auto pb-4">
+            <img src="./assets/github-logo.png" alt="">
+        </div>
+
+        <div class="text-center">
+            <h1 class="text-[#1F2937] text-2xl font-bold">GitHub Issues Tracker</h1>
+            <p class="text-[#64748B] text-[16px]">Sign in to manage your issues</p>
+        </div>
+
+        <div class="form pt-2">
+            <div class="card-body">
+                <fieldset class="fieldset">
+                    <label class="label text-[#1F2937] text-[14px] font-semibold">Username</label>
+                    <input id="user-name" type="text" class="input rounded-lg bg-[#FFFFFF] w-full"
+                        placeholder="Enter Username" />
+                    <label class="label text-[#4A00FF]">Default: admin</label>
+
+                    <label class="label text-[#1F2937] text-[14px] font-semibold">Password</label>
+                    <input id="user-pass" type="password" class="input rounded-lg bg-[#FFFFFF] w-full"
+                        placeholder="Enter Password" />
+                    <label class="label text-[#4A00FF]">Default: admin123</label>
+                    <button id="login-btn" class="btn btn-active btn-primary rounded-lg mt-4 hover:bg-green-800">Sign
+                        In</button>
+                </fieldset>
+            </div>
+        </div>
+
+        <div class="px-6 pb-6 space-y-2">
+            <div class="flex items-center">
+                <div class="flex-grow border-t border-gray-300"></div>
+                <span class="mx-4 text-gray-500">OR</span>
+                <div class="flex-grow border-t border-gray-300"></div>
+            </div>
+            <p class="text-center text-[#64748B] text-[14px]">Demo Credentials:</p>
+             <div class="bg-gray-100 rounded-lg p-4 text-center">
+            <p><span class="font-semibold">Username:</span> admin</p>
+            <p><span class="font-semibold">Password:</span> admin123</p>
+    </div>
+        </div>
+
+    </section>
+
+    <script src="./script/login.js"></script>
 </body>
+
 </html>
