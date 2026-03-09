@@ -99,6 +99,59 @@
     <span class="loading loading-spinner loading-xl"></span>
    </div>
         </section>
+
+        <!-- modal design -->
+        <section>
+            <dialog id="my_modal_5" class="modal modal-middle">
+  <div class="modal-box max-w-3xl">
+
+    <h2 id="modal-title" class="text-3xl font-bold text-gray-800 mb-4"></h2>
+
+    <div class="flex items-center gap-3 mb-4 text-gray-500 text-sm">
+
+      <span id="modal-status"
+        class="px-4 py-1 rounded-full text-white text-xs font-semibold">
+      </span>
+
+      <span>• Opened by</span>
+      <span id="modal-author"></span>
+      <span>•</span>
+      <span id="modal-date"></span>
+
+    </div>
+
+    <div id="modal-labels" class="flex gap-3 mb-4 flex-wrap"></div>
+
+    <p id="modal-description" class="text-gray-600 mb-6"></p>
+
+    <div class="bg-gray-100 rounded-xl p-6 flex justify-between mb-6">
+
+      <div>
+        <p class="text-gray-500 text-sm">Assignee:</p>
+        <p id="modal-assignee" class="font-semibold text-gray-800"></p>
+      </div>
+
+      <div>
+        <p class="text-gray-500 text-sm">Priority:</p>
+        <span id="modal-priority"
+          class="px-3 py-1 rounded-lg text-white text-sm font-semibold">
+        </span>
+      </div>
+
+    </div>
+
+    <!-- Close Button -->
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="px-6 py-2 rounded-lg bg-purple-600 text-white hover:bg-purple-700 cursor-pointer">
+          Close
+        </button>
+      </form>
+    </div>
+
+  </div>
+</dialog>
+        </section>
     </main>
 
     <script src="./script/main.js"></script>

@@ -94,8 +94,108 @@ searchBtn.addEventListener("click", () => {
     }
 
     displayCards(filtered);
+    searchInput.value = "";
 
-});
+});  //okkk
+
+// Lavel generator
+
+function generateLabels(labels){
+
+    let labelsHTML = "";
+
+    labels.forEach(label => {
+
+        if(label === "bug"){
+            labelsHTML += `
+            <span class="text-xs px-3 py-1 bg-red-100 text-red-500 rounded-full">
+            <i class="fa-solid fa-bug"></i> BUG
+            </span>`;
+        }
+        else if(label === "help wanted"){
+            labelsHTML += `
+            <span class="text-xs px-3 py-1 bg-orange-100 text-orange-500 rounded-full">
+            <i class="fa-solid fa-life-ring"></i> HELP WANTED
+            </span>`;
+        }
+        else if(label === "enhancement"){
+            labelsHTML += `
+            <span class="text-xs px-3 py-1 bg-green-100 text-green-600 rounded-full">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> ENHANCEMENT
+            </span>`;
+        }
+        else if(label === "documentation"){
+            labelsHTML += `
+            <span class="text-xs px-3 py-1 bg-gray-200 text-gray-600 rounded-full">
+            <i class="fa-solid fa-circle-info"></i> DOCUMENTATION
+            </span>`;
+        }
+        else if(label === "good first issue"){
+            labelsHTML += `
+            <span class="text-xs px-3 py-1 bg-gray-200 text-gray-700 rounded-full">
+            ⭐ GOOD FIRST ISSUE
+            </span>`;
+        }
+
+    });
+
+    return labelsHTML;
+}
+
+  //Modal funtionalities
+
+function openModal(issue){
+
+    // Title
+    document.getElementById("modal-title").innerText = issue.title;
+
+    // Author
+    document.getElementById("modal-author").innerText = issue.author;
+
+    // Date
+    document.getElementById("modal-date").innerText = issue.createdAt;
+
+    // Description
+    document.getElementById("modal-description").innerText = issue.description;
+
+    // Assignee
+    document.getElementById("modal-assignee").innerText =
+        issue.author ? issue.author : "Not Assigned";
+
+    // Status Badge
+    const status = document.getElementById("modal-status");
+
+    if(issue.status === "open"){
+        status.innerText = "OPENED";
+        status.className = "px-4 py-1 rounded-full bg-green-600 text-white text-xs font-semibold";
+    }
+    else{
+        status.innerText = "CLOSED";
+        status.className = "px-4 py-1 rounded-full bg-purple-600 text-white text-xs font-semibold";
+    }
+
+    // Priority
+    const priority = document.getElementById("modal-priority");
+
+    priority.innerText = issue.priority.toUpperCase();
+
+    if(issue.priority.toLowerCase() === "high"){
+        priority.className = "px-3 py-1 rounded-lg bg-red-500 text-white text-sm font-semibold";
+    }
+    else if(issue.priority.toLowerCase() === "medium"){
+        priority.className = "px-3 py-1 rounded-lg bg-yellow-500 text-white text-sm font-semibold";
+    }
+    else{
+        priority.className = "px-3 py-1 rounded-lg bg-green-500 text-white text-sm font-semibold";
+    }
+
+    // Labels
+    document.getElementById("modal-labels").innerHTML = generateLabels(issue.labels);
+
+    // Show Modal
+    document.getElementById("my_modal_5").showModal();
+}
+
 
 
 const displayCards = (cards) =>{
@@ -112,8 +212,9 @@ const displayCards = (cards) =>{
         ? "border-green-500"
         : "border-purple-500";
 
+        const labelsHTML = generateLabels(card.labels);
         const issueCard = document.createElement("div");
-        issueCard.className =`bg-white rounded-xl shadow border-t-4 ${borderColor}`;
+        issueCard.className =`bg-white rounded-xl shadow border-t-4 ${borderColor} cursor-pointer`;
         issueCard.innerHTML = `
         
 
@@ -139,16 +240,9 @@ const displayCards = (cards) =>{
                 ${card.description}
             </p>
 
-            <div class="flex gap-2 mb-4">
+            <div class="flex gap-2 mb-4 flex-wrap">
 
-                <span class="text-xs px-3 py-1 bg-red-100 text-red-500 rounded-full">
-                    <i class="fa-solid fa-bug"></i> BUG
-                </span>
-
-                <span class="text-xs px-3 py-1 bg-orange-100 text-orange-500 rounded-full">
-                    <i class="fa-solid fa-life-ring"></i> HELP WANTED
-                </span>
-
+                ${labelsHTML}
             </div>
 
         </div>
@@ -159,6 +253,12 @@ const displayCards = (cards) =>{
         </div>
 
         `;
+
+         // Card Click → Open Modal
+        issueCard.addEventListener("click", () => {
+            openModal(card);
+        });
+
         cardContainer.appendChild(issueCard);
 
     }
