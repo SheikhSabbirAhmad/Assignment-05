@@ -96,7 +96,7 @@ searchBtn.addEventListener("click", () => {
     displayCards(filtered);
     searchInput.value = "";
 
-});  //okkk
+});
 
 // Lavel generator
 
